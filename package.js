@@ -1,18 +1,19 @@
 Package.describe({
   summary: "A javascript text differencing implementation.",
-  version: "1.0.8",
+  version: "1.2.0",
   git: "https://github.com/ovcharik/meteor-jsdiff"
 });
 
-Package.on_use(function (api, where) {
-  where = where || ['client', 'server'];
-
-  api.versionsFrom && api.versionsFrom("METEOR@0.9.0");
-
-  api.add_files('vendor/diff.js', where);
-  api.add_files('main.js', where);
+Package.on_use(function (api) {
+  api.add_files('vendor/diff.js');
+  api.add_files('export.js');
 
   if (api.export) {
-    api.export('JsDiff', where);
+    api.export('JsDiff');
   }
+});
+
+Package.on_test(function (api) {
+  api.use(['ovcharik:jsdiff', 'underscore', 'tinytest', 'test-helpers']);
+  api.add_files(['jsdiff-tests.js']);
 });
