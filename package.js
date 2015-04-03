@@ -1,6 +1,6 @@
 Package.describe({
   summary: "A javascript text differencing implementation.",
-  version: "1.3.1",
+  version: "1.3.2",
   git: "https://github.com/ovcharik/meteor-jsdiff"
 });
 
